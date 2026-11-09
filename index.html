@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Bomber Retro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="hud">
+      <span>STAGE <b id="hud-stage">1</b></span>
+      <span>TIME <b id="hud-time">200</b></span>
+      <span class="hud-ai">AI <b id="hud-ai">3</b></span>
+      <span class="hud-p hud-p1"><i>1P</i> <b id="hud-score1">000000</b> ♥<b class="lv" id="hud-lives1">3</b> B<b class="st" id="hud-bombs1">1</b> F<b class="st" id="hud-fire1">1</b></span>
+      <span class="hud-p hud-p2" id="hud-p2"><i>2P</i> <b id="hud-score2">000000</b> ♥<b class="lv" id="hud-lives2">3</b> B<b class="st" id="hud-bombs2">1</b> F<b class="st" id="hud-fire2">1</b></span>
+    </header>
+
+    <main class="play-area">
+      <div class="ctrl ctrl-dpad">
+        <div id="dpad" class="dpad">
+          <span class="arrow up" data-dir="up">▲</span>
+          <span class="arrow left" data-dir="left">◀</span>
+          <span class="arrow right" data-dir="right">▶</span>
+          <span class="arrow down" data-dir="down">▼</span>
+        </div>
+      </div>
+
+      <div class="screen">
+        <canvas id="game"></canvas>
+        <div id="overlay" class="overlay">
+          <h1 id="ov-title">BOMBER<br>RETRO</h1>
+          <p id="ov-text" class="blink">PRESS ENTER</p>
+          <div id="ai-select" class="ai-select">
+            <p class="ai-label">AI 難度（敵人與 2P 電腦）</p>
+            <div class="ai-buttons">
+              <button data-lv="1">1</button>
+              <button data-lv="2">2</button>
+              <button data-lv="3">3</button>
+              <button data-lv="4">4</button>
+              <button data-lv="5">5</button>
+            </div>
+            <p id="ai-desc" class="ai-desc"></p>
+          </div>
+          <div id="p2-select" class="ai-select">
+            <p class="ai-label">2P 對手</p>
+            <div class="ai-buttons p2-buttons">
+              <button data-mode="off">關閉</button>
+              <button data-mode="ai">AI</button>
+              <button data-mode="human" class="human-only">真人</button>
+            </div>
+          </div>
+          <p id="ov-help" class="ov-help">方向鍵 / WASD 移動　空白鍵 放炸彈　P 暫停</p>
+        </div>
+      </div>
+
+      <div class="ctrl ctrl-action">
+        <button id="btn-pause" class="btn-pause" aria-label="暫停">II</button>
+        <button id="btn-bomb" class="btn-bomb" aria-label="放炸彈">BOMB</button>
+      </div>
+    </main>
+
+    <footer class="help">1P：方向鍵 / WASD 移動、SPACE / X 放炸彈　2P（真人）：IJKL 移動、U / O 放炸彈　P / ESC：暫停</footer>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
